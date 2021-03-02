@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quilix.TestTask.Logic", "src\Quilix.TestTask.Logic\Quilix.TestTask.Logic.csproj", "{C5EC5C33-7F6F-4E97-9B18-E4BF872E24A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quilix.TestTask.Logic", "src\Quilix.TestTask.Logic\Quilix.TestTask.Logic.csproj", "{C5EC5C33-7F6F-4E97-9B18-E4BF872E24A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quilix.TestTask.Data", "src\Quilix.TestTask.Data\Quilix.TestTask.Data.csproj", "{6C3CFD7A-75A3-45AF-9654-5115490398B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quilix.TestTask.Data", "src\Quilix.TestTask.Data\Quilix.TestTask.Data.csproj", "{6C3CFD7A-75A3-45AF-9654-5115490398B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quilix.TestTask.App", "src\Quilix.TestTask.Bynkov.DataAccess\Quilix.TestTask.App\Quilix.TestTask.App.csproj", "{44578282-E373-4750-B8BE-C6423E922B51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quilix.TestTask.DataAppWeb", "src\Quilix.TestTask.App\Quilix.TestTask.DataAppWeb\Quilix.TestTask.DataAppWeb.csproj", "{0A85F18E-B365-4C9D-94A9-D80802144C09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{6C3CFD7A-75A3-45AF-9654-5115490398B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C3CFD7A-75A3-45AF-9654-5115490398B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C3CFD7A-75A3-45AF-9654-5115490398B1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44578282-E373-4750-B8BE-C6423E922B51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44578282-E373-4750-B8BE-C6423E922B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44578282-E373-4750-B8BE-C6423E922B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44578282-E373-4750-B8BE-C6423E922B51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A85F18E-B365-4C9D-94A9-D80802144C09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A85F18E-B365-4C9D-94A9-D80802144C09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A85F18E-B365-4C9D-94A9-D80802144C09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A85F18E-B365-4C9D-94A9-D80802144C09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

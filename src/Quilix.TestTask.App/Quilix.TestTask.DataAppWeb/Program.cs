@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Quilix.TestTask.App
+namespace Quilix.TestTask.DataAppWeb
 {
     public class Program
     {
