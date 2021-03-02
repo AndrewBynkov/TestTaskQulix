@@ -12,4 +12,8 @@
     <ProjectReference Include="..\Quilix.TestTask.Data\Quilix.TestTask.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Managers\" />
+  </ItemGroup>
+
 </Project>

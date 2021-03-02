@@ -7,7 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quilix.TestTask.Logic", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quilix.TestTask.Data", "src\Quilix.TestTask.Data\Quilix.TestTask.Data.csproj", "{6C3CFD7A-75A3-45AF-9654-5115490398B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quilix.TestTask.DataAppWeb", "src\Quilix.TestTask.App\Quilix.TestTask.DataAppWeb\Quilix.TestTask.DataAppWeb.csproj", "{0A85F18E-B365-4C9D-94A9-D80802144C09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quilix.TestTask.AppWeb", "src\Quilix.TestTask.App\Quilix.TestTask.DataAppWeb\Quilix.TestTask.AppWeb.csproj", "{0A85F18E-B365-4C9D-94A9-D80802144C09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{43E25560-3C37-4BDC-AFD4-6418EF610784}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\SqlScriptToCreateDatabase.sql = scripts\SqlScriptToCreateDatabase.sql
+		scripts\SqlScriptToCreateProcedures.sql = scripts\SqlScriptToCreateProcedures.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

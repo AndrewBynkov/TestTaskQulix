@@ -1,39 +1,47 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Quilix.TestTask.Data.Models;
+using Quilix.TestTask.Logic.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Quilix.TestTask.DataAppWeb.Controllers
 {
     public class EmployeeController : Controller
     {
-        // GET: EmployeeController
+        // UNDONE: Необходимо использовать ViewModels
+        private readonly IEmployeeManager _employeeManager;
+
+        public EmployeeController(IEmployeeManager employeeManager)
+        {
+            _employeeManager = employeeManager ?? throw new ArgumentNullException(nameof(employeeManager));
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var employees = _employeeManager.GetAllEmployees();
+            return View(employees);
         }
 
-        // GET: EmployeeController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var employee = _employeeManager.GetEmployeeData(id);
+            return View(employee);
         }
 
-        // GET: EmployeeController/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: EmployeeController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Employee employee)
         {
             try
             {
+                _employeeManager.AddEmployee(employee);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -42,19 +50,20 @@ namespace Quilix.TestTask.DataAppWeb.Controllers
             }
         }
 
-        // GET: EmployeeController/Edit/5
+        [HttpGet]
         public ActionResult Edit(int id)
         {
-            return View();
+            var employee = _employeeManager.GetEmployeeData(id);
+            return View(employee);
         }
 
-        // POST: EmployeeController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Employee employee, IFormCollection collection)
         {
             try
             {
+                _employeeManager.UpdateEmployee(employee);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -63,19 +72,18 @@ namespace Quilix.TestTask.DataAppWeb.Controllers
             }
         }
 
-        // GET: EmployeeController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete()
         {
             return View();
         }
 
-        // POST: EmployeeController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
         {
             try
             {
+                _employeeManager.DeleteEmployee(id);
                 return RedirectToAction(nameof(Index));
             }
             catch

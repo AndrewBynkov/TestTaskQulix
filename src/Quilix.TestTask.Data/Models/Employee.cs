@@ -1,8 +1,5 @@
 ﻿using Quilix.TestTask.Data.Enums;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace Quilix.TestTask.Data.Models
 {
@@ -10,19 +7,14 @@ namespace Quilix.TestTask.Data.Models
     {
         public int Id { get; set; }
 
-        [Required]
         public string Name { get; set; }
 
-        [Required]
         public string Surname { get; set; }
 
-        public string SecondSurname { get; set; }
+        public string SecondName { get; set; }
 
-        [Required]
-        public DateTime EmploymentDate { get; set; }
+        public DateTime HiringDate { get; set; }
 
-        [Required]
-        public Positions Position { get; set; }
-
+        public PositionType Position { get; set; }
     }
 }

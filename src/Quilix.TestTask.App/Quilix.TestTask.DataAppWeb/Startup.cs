@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Quilix.TestTask.Logic.Interfaces;
+using Quilix.TestTask.Logic.Managers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,7 @@ namespace Quilix.TestTask.DataAppWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IEmployeeManager, EmployeeManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
