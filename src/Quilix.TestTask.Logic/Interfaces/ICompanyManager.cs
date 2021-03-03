@@ -9,7 +9,8 @@ namespace Quilix.TestTask.Logic.Interfaces
 {
     public interface ICompanyManager
     {
-        IEnumerable<Company> GetAllCompany();
+        // UNDONE: При возможности LINQ лучше использовать IEnumerable
+        List<Company> GetAllCompany();
 
         void AddCompany(Company company);
 

@@ -19,7 +19,7 @@ namespace Quilix.TestTask.Logic.Managers
 
             using (var sqlConnection = new SqlConnection(ConnectionString.CName))
             {
-                var sqlQuery = "SELECT * FROM [organization].[company] WHERE Id= " + id;
+                var sqlQuery = "SELECT * FROM [organization].[Companies] WHERE Id= " + id;
                 var sqlCommand = new SqlCommand(sqlQuery, sqlConnection);
                 sqlConnection.Open();
                 var sqlDataReader = sqlCommand.ExecuteReader();
@@ -28,7 +28,7 @@ namespace Quilix.TestTask.Logic.Managers
                 {
                     company.Id = Convert.ToInt32(sqlDataReader["Id"]);
                     company.Name = sqlDataReader["Name"].ToString();
-                    company.OrganizationForm = sqlDataReader["Surname"].ToString();
+                    company.OrganizationForm = sqlDataReader["OrganizationForm"].ToString();
 
                 }
             }
@@ -44,7 +44,7 @@ namespace Quilix.TestTask.Logic.Managers
 
                 sqlCommand.Parameters.AddWithValue("@Id", company.Id);
                 sqlCommand.Parameters.AddWithValue("@Name", company.Name);
-                sqlCommand.Parameters.AddWithValue("@Surname", company.OrganizationForm);
+                sqlCommand.Parameters.AddWithValue("@OrganizationForm", company.OrganizationForm);
 
                 sqlConnection.Open();
                 sqlCommand.ExecuteNonQuery();
@@ -82,7 +82,7 @@ namespace Quilix.TestTask.Logic.Managers
             }
         }
 
-        IEnumerable<Company> ICompanyManager.GetAllCompany()
+        List<Company> ICompanyManager.GetAllCompany()
         {
             var companees = new List<Company>();
             using (var sqlConnection = new SqlConnection(ConnectionString.CName))
@@ -94,10 +94,10 @@ namespace Quilix.TestTask.Logic.Managers
 
                 while (sqlDataReader.Read())
                 {
-                    Company company = new Company();
+                    var company = new Company();
                     company.Id = Convert.ToInt32(sqlDataReader["Id"]);
                     company.Name = sqlDataReader["Name"].ToString();
-                    company.OrganizationForm = sqlDataReader["Organization Form"].ToString();
+                    company.OrganizationForm = sqlDataReader["OrganizationForm"].ToString();
 
                     companees.Add(company);
                 }

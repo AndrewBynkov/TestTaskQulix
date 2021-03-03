@@ -44,7 +44,7 @@ namespace Quilix.TestTask.Logic.Managers
             }
         }
 
-        public IEnumerable<Employee> GetAllEmployees()
+        public List<Employee> GetAllEmployees()
         {
             var employees = new List<Employee>();
 
@@ -110,11 +110,36 @@ namespace Quilix.TestTask.Logic.Managers
                 sqlCommand.Parameters.AddWithValue("@SecondName", employee.SecondName);
                 sqlCommand.Parameters.AddWithValue("@Position", employee.Position);
                 sqlCommand.Parameters.AddWithValue("@HiringDate", employee.HiringDate);
-
+                
                 sqlConnection.Open();
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
             }
+        }
+
+        public int GetLastId()
+        {
+            var employee = new Employee();
+
+            using (var sqlConnection = new SqlConnection(connectionString))
+            {
+                var sqlQuery = "SELECT TOP(1) * FROM [organization].[Employees] ORDER BY Id DESC";
+                var sqlCommand = new SqlCommand(sqlQuery, sqlConnection);
+                sqlConnection.Open();
+                var sqlDataReader = sqlCommand.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    employee.Id = Convert.ToInt32(sqlDataReader["Id"]);
+                    employee.Name = sqlDataReader["Name"].ToString();
+                    employee.Surname = sqlDataReader["Surname"].ToString();
+                    employee.SecondName = sqlDataReader["SecondName"].ToString();
+                    employee.Position = (PositionType)sqlDataReader["Position"];
+                    employee.HiringDate = (DateTime)sqlDataReader["HiringDate"];
+                }
+            }
+
+            return employee.Id;
         }
 
         string connectionString = ConnectionString.CName;

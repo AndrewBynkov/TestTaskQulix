@@ -1,4 +1,4 @@
-﻿@model Quilix.TestTask.Data.Models.Employee
+﻿@model EmployeeViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -33,14 +33,20 @@
                 <span asp-validation-for="HiringDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-html="true" title="1. Разработчик 2. Тестировщик 3. Бизнес-аналитик 4. Менеджер">
-                    Info
-                </button>
-                @*UNDONE: Необходимо использовать SelectList для полноценного использования Enum *@
-
-                <label asp-for="Position" class="control-label"></label>
-                <input asp-for="Position" class="form-control" type="number" min="1" max="4" />
-                <span asp-validation-for="Position" class="text-danger"></span>
+                <select asp-for="Position" asp-items="Html.GetEnumSelectList<PositionType>()"></select>
+                @*<button type="button"
+                    class="btn btn-secondary"
+                    data-bs-toggle="tooltip"
+                    data-bs-html="true"
+                    title="1. Разработчик 2. Тестировщик 3. Бизнес-аналитик 4. Менеджер">
+                Info
+            </button>
+            <label asp-for="Position" class="control-label"></label>
+            <input asp-for="Position" class="form-control" type="number" min="1" max="4" />
+            <span asp-validation-for="Position" class="text-danger"></span>*@
+            </div>
+            <div class="dropdown">
+                @Html.DropDownListFor(model => model.CompanyId, ViewBag.Companies as SelectList)
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

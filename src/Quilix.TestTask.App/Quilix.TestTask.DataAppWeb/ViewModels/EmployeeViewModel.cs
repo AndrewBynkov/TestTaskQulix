@@ -4,25 +4,29 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Quilix.TestTask.DataAppWeb.ViewModels
 {
-    public class Employee
+    public class EmployeeViewModel
     {
+        public int Id { get; set; }
+
         [Required]
-        [Display(Name = "Имя сотрудника")]
         public string Name { get; set; }
 
         [Required]
-        [Display(Name = "Фамилия")]
         public string Surname { get; set; }
 
-        [Display(Name = "Отчество")]
+        [Display(Name = "Second name")]
         public string SecondName { get; set; }
 
         [Required]
-        [Display(Name = "Дата принятия на работу")]
+        [Display(Name = "Hiring date")]
         public DateTime HiringDate { get; set; }
 
         [Required]
-        [Display(Name = "Должность")]
         public PositionType Position { get; set; }
+
+        public int CompanyId { get; set; }
+
+        [Display(Name = "Company name")]
+        public string CompanyName { get; set; }
     }
 }
