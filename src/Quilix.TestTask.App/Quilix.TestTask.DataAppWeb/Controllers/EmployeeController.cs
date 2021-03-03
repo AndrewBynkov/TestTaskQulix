@@ -200,15 +200,11 @@ namespace Quilix.TestTask.DataAppWeb.Controllers
         {
             try
             {
-                // UNDONE: Запрет возможности удалить базовую компанию
-                if (id != 1)
-                {
-                    var employee = _employeeManager.GetEmployeeData(id);
-                    var companyEmployeeId = _companyEmployeeManager.GetIdByByEmployeeId(employee.Id);
+                var employee = _employeeManager.GetEmployeeData(id);
+                var companyEmployeeId = _companyEmployeeManager.GetIdByByEmployeeId(employee.Id);
 
-                    _companyEmployeeManager.DeleteCompanyEmployee(companyEmployeeId);
-                    _employeeManager.DeleteEmployee(id);
-                }
+                _companyEmployeeManager.DeleteCompanyEmployee(companyEmployeeId);
+                _employeeManager.DeleteEmployee(id);
 
                 return RedirectToAction(nameof(Index));
             }

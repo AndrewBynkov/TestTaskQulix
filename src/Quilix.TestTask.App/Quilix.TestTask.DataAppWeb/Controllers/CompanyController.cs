@@ -145,19 +145,23 @@ namespace Quilix.TestTask.AppWeb.Controllers
         {
             try
             {
-                var companyEmployees = _companyEmployeeManager.GetAllCompanyEmployee();
-                var isExist = companyEmployees.FindAll(c => c.CompanyId == id);
-
-                if (isExist.Count > 0)
+                // UNDONE: Запрет возможности удалить базовую компанию
+                if (id != 1)
                 {
-                    // UNDONE: Продумать View для запрета операции
+                    var companyEmployees = _companyEmployeeManager.GetAllCompanyEmployee();
+                    var isExist = companyEmployees.FindAll(c => c.CompanyId == id);
 
-                    return RedirectToAction(nameof(Index));
+                    if (isExist.Count > 0)
+                    {
+                        // UNDONE: Продумать View для запрета операции
+
+                        return RedirectToAction(nameof(Index));
+                    }
+
+                    _companyManager.DeleteCompany(id);
+
+                    // UNDONE: Обработать потенциальную ошибку при операции с данными
                 }
-
-                _companyManager.DeleteCompany(id);
-
-                // UNDONE: Обработать потенциальную ошибку при операции с данными
 
                 return RedirectToAction(nameof(Index));
             }

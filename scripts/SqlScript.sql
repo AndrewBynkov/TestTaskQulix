@@ -61,7 +61,6 @@ VALUES ('Basic', 'None');
 
 GO
 
-
 -- Employee
 
 Create procedure spGetAllEmployee
@@ -109,7 +108,108 @@ begin
 End
 GO
 
+Create procedure spDeleteEmployee
+(
+   @Id int
+)
+as
+begin
+   Delete from [organization].[Employees] where Id=@Id
+End
+GO
 
+---- Company
 
+Create procedure spGetAllCompany
+as
+Begin
+    select *
+    from [organization].[Companies]
+    order by Id
+End
+GO
 
+Create procedure spAddCompany
+(
+    @Name VARCHAR(50),
+    @OrganizationForm VARCHAR(50)
+)
+as
+Begin
+    Insert into [organization].[Companies] (Name, OrganizationForm)
+    Values (@Name, @OrganizationForm)
+End
+GO
 
+Create procedure spUpdateCompany
+(
+    @Id INT ,
+    @Name VARCHAR(50),
+    @OrganizationForm VARCHAR(50)
+)
+as
+begin
+   Update [organization].[Companies]
+   set Name=@Name,
+   OrganizationForm=@OrganizationForm
+   where Id=@Id
+End
+GO
+
+Create procedure spDeleteCompany
+(
+   @Id int
+)
+as
+begin
+   Delete from [organization].[Companies] where Id=@Id
+End
+GO
+
+---- CompanyEmpoyee
+
+Create procedure spGetAllCompanyEmployee
+as
+Begin
+    select *
+    from [organization].[CompanyEmployees]
+    order by Id
+End
+GO
+
+Create procedure spAddCompanyEmployee
+(
+    @EmployeeId INT,
+    @CompanyId INT
+)
+as
+Begin
+    Insert into [organization].[CompanyEmployees] (EmployeeId, CompanyId)
+    Values (@EmployeeId, @CompanyId)
+End
+GO
+
+Create procedure spUpdateCompanyEmployee
+(
+    @Id INT ,
+    @CompanyId INT,
+    @EmployeeId INT
+)
+as
+begin
+   Update [organization].[CompanyEmployees]
+   set CompanyId=@CompanyId,
+   EmployeeId=@EmployeeId
+   where Id=@Id
+End
+GO
+
+Create procedure spDeleteCompanyEmployee
+(
+   @Id int
+)
+as
+begin
+   Delete from [organization].[CompanyEmployees] where Id=@Id
+End
+GO
