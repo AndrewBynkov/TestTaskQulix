@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Quilix.TestTask.Data.Enums
+﻿namespace Quilix.TestTask.Data.Enums
 {
     public enum PositionType
     {

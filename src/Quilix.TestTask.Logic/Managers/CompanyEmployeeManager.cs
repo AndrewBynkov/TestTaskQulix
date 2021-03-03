@@ -5,9 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Quilix.TestTask.Logic.Managers
 {
@@ -60,7 +57,6 @@ namespace Quilix.TestTask.Logic.Managers
                     companyEmployee.CompanyId = Convert.ToInt32(sqlDataReader["CompanyId"]);
                     companyEmployee.EmployeeId = Convert.ToInt32(sqlDataReader["EmployeeId"]);
 
-
                     companyEmployees.Add(companyEmployee);
                 }
                 sqlConnection.Close();
@@ -85,7 +81,6 @@ namespace Quilix.TestTask.Logic.Managers
                     companyEmployee.Id = Convert.ToInt32(sqlDataReader["Id"]);
                     companyEmployee.CompanyId = Convert.ToInt32(sqlDataReader["CompanyId"]);
                     companyEmployee.EmployeeId = Convert.ToInt32(sqlDataReader["EmployeeId"]);
-
                 }
             }
             return companyEmployee;
@@ -107,7 +102,6 @@ namespace Quilix.TestTask.Logic.Managers
                     companyEmployee.Id = Convert.ToInt32(sqlDataReader["Id"]);
                     companyEmployee.CompanyId = Convert.ToInt32(sqlDataReader["CompanyId"]);
                     companyEmployee.EmployeeId = Convert.ToInt32(sqlDataReader["EmployeeId"]);
-
                 }
             }
             return companyEmployee.CompanyId;
@@ -129,7 +123,6 @@ namespace Quilix.TestTask.Logic.Managers
                     companyEmployee.Id = Convert.ToInt32(sqlDataReader["Id"]);
                     companyEmployee.CompanyId = Convert.ToInt32(sqlDataReader["CompanyId"]);
                     companyEmployee.EmployeeId = Convert.ToInt32(sqlDataReader["EmployeeId"]);
-
                 }
             }
             return companyEmployee.Id;

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Quilix.TestTask.Data.Models;
 using Quilix.TestTask.DataAppWeb.ViewModels;
@@ -29,14 +28,14 @@ namespace Quilix.TestTask.DataAppWeb.Controllers
         {
             var employees = _employeeManager.GetAllEmployees();
             var companyEmployees = _companyEmployeeManager.GetAllCompanyEmployee();
-            var companies =  _companyManager.GetAllCompany();
+            var companies = _companyManager.GetAllCompany();
 
             // UNDONE: Проверить полученные данные из БД
 
             var employeesViewModels = new List<EmployeeViewModel>();
             foreach (var employee in employees)
             {
-                var companyEmployee = companyEmployees.Find(c => c.EmployeeId ==  employee.Id);
+                var companyEmployee = companyEmployees.Find(c => c.EmployeeId == employee.Id);
                 var company = companies.Find(c => c.Id == companyEmployee.CompanyId);
 
                 employeesViewModels.Add(new EmployeeViewModel

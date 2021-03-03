@@ -1,14 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Quilix.TestTask.Data.Models;
 using Quilix.TestTask.DataAppWeb.ViewModels;
 using Quilix.TestTask.Logic.Interfaces;
-using Quilix.TestTask.Logic.Managers;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Quilix.TestTask.AppWeb.Controllers
 {

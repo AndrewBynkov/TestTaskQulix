@@ -110,7 +110,7 @@ namespace Quilix.TestTask.Logic.Managers
                 sqlCommand.Parameters.AddWithValue("@SecondName", employee.SecondName);
                 sqlCommand.Parameters.AddWithValue("@Position", employee.Position);
                 sqlCommand.Parameters.AddWithValue("@HiringDate", employee.HiringDate);
-                
+
                 sqlConnection.Open();
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
@@ -142,6 +142,6 @@ namespace Quilix.TestTask.Logic.Managers
             return employee.Id;
         }
 
-        string connectionString = ConnectionString.CName;
+        private string connectionString = ConnectionString.CName;
     }
 }

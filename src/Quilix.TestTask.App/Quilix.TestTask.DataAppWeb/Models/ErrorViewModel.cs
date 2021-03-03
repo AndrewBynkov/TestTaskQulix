@@ -1,5 +1,3 @@
-using System;
-
 namespace Quilix.TestTask.DataAppWeb.Models
 {
     public class ErrorViewModel

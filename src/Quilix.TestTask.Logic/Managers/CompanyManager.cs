@@ -5,9 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Quilix.TestTask.Logic.Managers
 {
@@ -29,7 +26,6 @@ namespace Quilix.TestTask.Logic.Managers
                     company.Id = Convert.ToInt32(sqlDataReader["Id"]);
                     company.Name = sqlDataReader["Name"].ToString();
                     company.OrganizationForm = sqlDataReader["OrganizationForm"].ToString();
-
                 }
             }
             return company;
